@@ -2,7 +2,7 @@
 Unity Engine에서 가비지 컬렉터 호출 지점을 그래프로 보여주고, 메모리 히스토리를 파일로 I/O하여 비교할 수 있는 커스텀 에디터 윈도우
 
 # 패키지 다운로드 링크
-  - 오류 수정 완료 후 배포 예정
+  https://drive.google.com/drive/folders/1zsrdGLh9p7opG4H9u1sYycETL3ILjBT_?usp=sharing
 
 # 개발 환경
 - Unity Engine 2023.2.16f1
@@ -59,6 +59,17 @@ Unity Engine에서 가비지 컬렉터 호출 지점을 그래프로 보여주�
   ## Comparison
   - 저장된 데이터와 현재 데이터를 비교하는 창을 출력.
   - JSON, CSV로 내보내고 불러온 이전-이후 시간대 별 메모리 사용량을 비교할 수 있음.
+  1. csv, json 중 원하는 포맷을 선택한 후 SAVE
+  ![버튼](https://github.com/user-attachments/assets/cb20e7f2-9502-4b3f-84f3-5b250872c50d)
+  ![SAVECOLPETE](https://github.com/user-attachments/assets/e8f1a3c5-b834-406b-90ec-934a97432cd4)
+  2. Asset 폴더 내 DataFiles폴더에 저장됨
+  ![SAVEDIRECTORY](https://github.com/user-attachments/assets/11eed4b0-8f47-412e-8bf5-8c2c08493b57)
+  3. CSV파일 저장 시
+  ![CSVFILE](https://github.com/user-attachments/assets/fb3ffca0-b499-416d-990e-61b90cf736b0)
+  4. JSON파일 저장 시
+  ![JSONFILE](https://github.com/user-attachments/assets/964cfa89-8d49-4f0c-bc26-c8004ba39705)
+  5. 포맷에 맞는 Load를 클릭하면 Comparison 윈도우에 현재 메모리에 할당된 사용량, 이전 메모리 사용량과 증가/감소 여부가 출력됨
+  ![CSV파일 로드 후 비교](https://github.com/user-attachments/assets/499a5c7b-f0ea-4ad0-a6c5-881902ebf0fb)
 
   ## private void TrackAllocation(string allocationSource)
   ![TrackAllocation](https://github.com/user-attachments/assets/be64aac4-5b27-44ab-8f8e-17584b8414af)
@@ -73,18 +84,24 @@ Unity Engine에서 가비지 컬렉터 호출 지점을 그래프로 보여주�
   - 메모리 히스토리 관리 및 비교 기능 : 이전 최적화 시점과 이후 성능차이를 쉽게 파악
   - 커스텀 리포트 기능 : 메모리 사용과 gc 호출 데이터를 csv, json으로 내보내고, 분석 리포트를 자동으로 생성하는 기능. 프로젝트 최적화 과정의 문서화에 도움
 
-  ## 현재 오류(해결 예정)
+  ## 현재 오류(해결)
   ![현재오류](https://github.com/user-attachments/assets/ce91515b-ba5f-41d9-a29a-dc0bf83eb665)
-  - UI 문제
-  - 파일 I/O 불가 문제
+  - UI 문제 : 파일 로드/세이브 메서드에서 오류가 발생하는 듯 하여 try-catch로 예외처리를 추가하고 다이얼로그디스플레이 출력을 후순위로 분할
+  ![파일경로수정2](https://github.com/user-attachments/assets/602e9aba-339f-484c-a023-24371f5294a7)
+  
+  - 파일 I/O 불가 문제 : 파일경로를 Application.dataPath를 사용하여 상대경로로 지정
+  ![파일경로수정1](https://github.com/user-attachments/assets/08219c18-1724-4024-b865-0d644601bd37)
 
   ## 패키지 구성
-  ![패키지목록](https://github.com/user-attachments/assets/01593407-b99b-4d47-8e4c-93e19ef410e9)
+  ![패키지목록](https://github.com/user-attachments/assets/058438a7-e828-4e35-bc77-f3a1b90da7b9)
   - MemoryData : json파일 세이브, 로드를 위해 생성. 기존에는 Newtonsoft 네임스페이스에서 dynamic을 사용한 메서드를 썼는데, c# 버전에 따라 사용이 불가할 수 있기에 jsonutility로 대체
   - GCVisualizer : 에디터 및 메인 소스
 
   ## 버전 목록
-  - 2024.09.12 Ver.1 :
+  - 2024.09.12 Ver.1 : 오류로 인해 미배포
+  - 2024.09.13 Ver.2 : https://drive.google.com/drive/folders/1zsrdGLh9p7opG4H9u1sYycETL3ILjBT_?usp=sharing
 
   ## 업데이트 노트
-  - Ver.1
+  - Ver.1 : 그래프 시각화, 메모리 및 GC트리거 내역 수치화 / UI 오류 및 파일 LOAD/SAVE 불가 오류
+  - Ver.2 : SAVE, LOAD 수행 시 EditorApplication.delayCall을 사용하여 DispalyDialog를 후순위로 호출하여 UI 오류 해결,
+            파일 경로를 Application.dataPath를 사용하여 상대경로로 지정하고 디렉터리 널체크 추가
