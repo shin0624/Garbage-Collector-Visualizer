@@ -59,16 +59,15 @@ Unity Engine에서 가비지 컬렉터 호출 지점을 그래프로 보여주�
   ## Comparison
   - 저장된 데이터와 현재 데이터를 비교하는 창을 출력.
   - JSON, CSV로 내보내고 불러온 이전-이후 시간대 별 메모리 사용량을 비교할 수 있음.
-  1. csv, json 중 원하는 포맷을 선택한 후 SAVE
-  ![버튼](https://github.com/user-attachments/assets/cb20e7f2-9502-4b3f-84f3-5b250872c50d)
-  ![SAVECOLPETE](https://github.com/user-attachments/assets/e8f1a3c5-b834-406b-90ec-934a97432cd4)
-  2. Asset 폴더 내 DataFiles폴더에 저장됨
+    1. csv, json 중 원하는 포맷을 선택한 후 SAVE
+  ![버튼](https://github.com/user-attachments/assets/cb20e7f2-9502-4b3f-84f3-5b250872c50d)![SAVECOLPETE](https://github.com/user-attachments/assets/e8f1a3c5-b834-406b-90ec-934a97432cd4)
+    2. Asset 폴더 내 DataFiles폴더에 저장됨
   ![SAVEDIRECTORY](https://github.com/user-attachments/assets/11eed4b0-8f47-412e-8bf5-8c2c08493b57)
-  3. CSV파일 저장 시
+    3. CSV파일 저장 시
   ![CSVFILE](https://github.com/user-attachments/assets/fb3ffca0-b499-416d-990e-61b90cf736b0)
-  4. JSON파일 저장 시
+    4. JSON파일 저장 시
   ![JSONFILE](https://github.com/user-attachments/assets/964cfa89-8d49-4f0c-bc26-c8004ba39705)
-  5. 포맷에 맞는 Load를 클릭하면 Comparison 윈도우에 현재 메모리에 할당된 사용량, 이전 메모리 사용량과 증가/감소 여부가 출력됨
+    5. 포맷에 맞는 Load를 클릭하면 Comparison 윈도우에 현재 메모리에 할당된 사용량, 이전 메모리 사용량과 증가/감소 여부가 출력됨
   ![CSV파일 로드 후 비교](https://github.com/user-attachments/assets/499a5c7b-f0ea-4ad0-a6c5-881902ebf0fb)
 
   ## private void TrackAllocation(string allocationSource)
